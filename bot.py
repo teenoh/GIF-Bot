@@ -45,10 +45,10 @@ def search_gif(text):
 def send_gif_message(recipient_id, message):
     gif_url = search_gif(message)
 
+    print(gif_url)
     data = json.dumps({
         "recipient": {"id": recipient_id},
         "message": {
-            "text": message,
             "attachment": {
                 "type": "image",
                 "payload": {
@@ -68,6 +68,7 @@ def send_gif_message(recipient_id, message):
     r = requests.post("https://graph.facebook.com/v2.6/me/messages",
                       params=params, headers=headers, data=data)
 
+    print(r)
 
 if __name__ == '__main__':
     app.run(debug=True)
