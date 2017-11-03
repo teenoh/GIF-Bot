@@ -19,6 +19,7 @@ def verify():
     else:
         print('wrong verification token')
         return "Error, Verification Failed"
+    return "Hello world", 200
 
 
 @app.route('/', methods=['POST'])
